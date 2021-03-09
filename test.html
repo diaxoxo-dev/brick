@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>상담- 상담 예약 신청</title>
+	
+	<link rel="stylesheet" type="text/css" href="../static/script/datepicker/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="../static/script/datepicker/jquery-ui.min.js"></script>
+
+	<script>
+		$(function() {
+			$( "[data-accordion]" ).accordion({
+				active: false,
+				collapsible: true
+			});
+
+			$("[data-inlinepicker]").datepicker({
+				// onSelect : function(dateText, inst){
+				// 	var location = document.querySelector("#seq2").offsetTop;
+				// 	alert(location)
+				// 	$("#contents").scrollTop(location - 55);
+				// }
+			});
+
+            $( function(){
+				$(".terms-tit").on("click" , function(){
+					var unit = $(this).find("input[type='checkbox']");				
+					var chked = $(".terms-tit").siblings("input:checked").length;
+					if( unit.is(":checked") == true){
+						unit.prop("checked", false);
+					}
+					else{
+						unit.prop("checked", true);
+					}
+					if(chked + 1  == 4){
+						$("#all-checkbox").prop("checked", true);
+					}else{
+						$("#all-checkbox").prop("checked", false);
+					}
+				});
+				$("#all-checkbox").on("click", function(){
+					if( $(this).is(":checked") == true){
+						$(".terms-list").find("input[type='checkbox']").prop("checked", true)
+					}
+					else{
+						$(".terms-list").find("input[type='checkbox']").prop("checked", false)
+					}
+				});
+			});
+		});
+	</script>
+    <style>
+        
+input[type=checkbox] {position:absolute;top:0;left:0;width:35px;height:35px;border:solid 2px #bbb;background-color:#fff;border-radius:4px;cursor:pointer;}
+input[type=checkbox] + .label {display:inline-block;vertical-align:middle;margin-left:46px;line-height:33px;font-size:20px;}
+.checkbox {position:relative;display:inline-block;vertical-align:middle;min-width:35px;min-height:35px;margin-left:53px}
+.checkbox input[type=checkbox]:checked {border-color:#830000;background-color:#830000;background-image:url(http://10.39.168.201/html/static/imgs/check-checked.png);background-position:center center;background-repeat:no-repeat;background-size:auto 16px;}
+.checkbox input[type=checkbox]:checked + .label {color:#000}
+.checkbox input[type=checkbox]:disabled {border-color:#ddd;background-color:#eee;background-image:none;}
+.checkbox input[type=checkbox]:disabled + .label {color:#888;}
+.checkbox input[type=checkbox]:disabled:checked + .label {color:#212121;}
+.checkbox:first-child {margin-left:0;}
+.checkbox-text {position:relative;display:inline-block;vertical-align:middle;}
+/* .checkbox-text:first-child {margin-left:0;} */
+.checkbox-text input[type=checkbox] {left:-1px;top:-1px;width:0;height:0;margin:0;padding:0;border:none 0;overflow:hidden;}
+.checkbox-text input[type=checkbox] + .label {width:100%; margin:0;padding:2px 0 0;height:40px;border-radius:3px;border:solid 1px #bbb;background-color:#fff;box-sizing:border-box;text-align:center;font-size:16px;}
+.checkbox-text input[type=checkbox]:checked + .label {border-color:#830000;background-color:#830000;color:#fff;}
+.width-auto .checkbox-text input[type=checkbox] + .label {width:auto;padding-left:10px;padding-right:10px;}
+/* accordion */
+.page-slctdetail .ui-widget-content {border:0 !important}
+.page-slctdetail .ui-corner-all, .page-slctdetail .ui-corner-top, .page-slctdetail .ui-corner-right, .page-slctdetail .ui-corner-tr,.page-slctdetail .ui-corner-all, .page-slctdetail .ui-corner-top, .page-slctdetail .ui-corner-left, .page-slctdetail .ui-corner-tl {border-radius:0 !important}
+.page-slctdetail .ui-state-active, .page-slctdetail .ui-widget-content .page-slctdetail .ui-state-active, .page-slctdetail .ui-widget-header .page-slctdetail .ui-state-active, a.page-slctdetail .ui-button:active, .page-slctdetail .ui-button:active, .page-slctdetail .ui-button.page-slctdetail .ui-state-active:hover,
+.page-slctdetail .ui-state-default, .page-slctdetail .ui-widget-content .page-slctdetail .ui-state-default, .page-slctdetail .ui-widget-header .page-slctdetail .ui-state-default, .page-slctdetail .ui-button, html .page-slctdetail .ui-button.page-slctdetail .ui-state-disabled:hover, html .page-slctdetail .ui-button.page-slctdetail .ui-state-disabled:active {background:none !important; color:#212121 !important}
+.page-slctdetail .ui-icon, .page-slctdetail .ui-widget-content .page-slctdetail .ui-icon {background:none}
+.page-slctdetail .ui-state-default, .page-slctdetail .ui-widget-content .page-slctdetail .ui-state-default, .page-slctdetail .ui-widget-header .page-slctdetail .ui-state-default, .page-slctdetail .ui-button, html .page-slctdetail .ui-button.page-slctdetail .ui-state-disabled:hover, html .page-slctdetail .ui-button.page-slctdetail .ui-state-disabled:active,.page-slctdetail .ui-accordion .page-slctdetail .ui-accordion-header {outline:none; border:none !important}
+[data-accordion] .ui-state-default {height:27px; line-height:27px}
+[data-accordion] .ui-accordion-header {padding:18px 0 20px 45px !important; font-size:20px !important}
+[data-accordion] .ui-accordion-header .ui-icon {position:absolute; top:calc(50% - 2px); right:24px; width:19px; height:11px; background:url(../imgs/ico-accordian.png) no-repeat 0 0; background-size:contain}
+[data-accordion] .ui-accordion-header.ui-state-active .ui-icon {transform: rotate(180deg);} 
+.data-picker-wrap {height:330px!important; }
+.data-picker-wrap.ui-datepicker .ui-datepicker-next span {background-image:url(../imgs/date-next.png) !important}
+.data-picker-wrap.ui-datepicker .ui-datepicker-prev span {background-image:url(../imgs/date-prev.png) !important}
+.rsrvtin-list.ui-accordion .ui-accordion-content {padding:0 0 14px 0 !important}
+.rsrvtin-list .chk-tit {margin:0 27px; font-size:17px; line-height:25px; letter-spacing:-0.4px;}
+.rsrvtin-section + .rsrvtin-section {border-top:2px solid #eee; margin-top:30px}
+[data-accordion] + .rsrvtin-section {margin-top:-2px !important; margin:0}
+.rsrvtin-section .inner {margin:0 15px; line-height:20px; padding-bottom:25px}
+.rsrvtin-agency {color:#860000; font-size:17px; font-weight:500; line-height:25px}
+        /* 이용약관 */
+.terms {margin:0 15px}
+.terms .ui-accordion .ui-accordion-content {padding:0 !important; min-height:34px}
+.terms h3 {padding:30px 0 24px}
+.terms .terms-txt {margin-left:5px; line-height:19px; letter-spacing:-0.35px;}
+.terms .terms-list-noti {position:relative; padding-bottom:15px; margin-bottom:15px; font-size:14px; border-bottom:1px solid #ddd; color:#616161; line-height:19px; letter-spacing:-0.3px}
+.terms .terms-list-noti .label {color:#212121}
+.terms .terms-list-des {font-size:14px; color:#616161; background:#f8f8f8; padding:10px 15px}
+.terms .terms-tit {position:relative; height:24px;line-height:24px; padding:0 !important; margin-bottom:18px}
+.terms .terms-tit .ui-icon {top:50%; right:0}
+.terms .terms-section {}
+.terms .terms-section-last {}
+.circle {min-height:24px; width:calc(100% - 20px); margin:0 20px 0 0}
+.circle input[type=checkbox] {left:5px; border-radius:50%; border:1px solid #bbb; width:18px; height:18px; top:calc(50% - 9px)}
+.circle input[type=checkbox]:checked {background-image:none}
+.circle input[type=checkbox] + .label {width:calc(100% - 30px); height:24px; margin-left:30px; line-height:24px;  font-size:16px; vertical-align:text-top; text-overflow:ellipsis; white-space:nowrap;overflow:hidden; }
+.circle label {height:24px; line-height:24px}
+.i-essential {position:relative; margin-left:7px; padding-left:7px; font-size:14px; color:#860000; font-style:inherit;}
+.i-essential:before {position:absolute; content:"*"; display:block;left:0; top:0}
+.i-select {font-size:14px; color:#888; margin-left:7px;}
+    </style>
+</head>
+
+<body>
+
+<div id="wrap">
+	
+	<div id="contents" class="page-slctdetail">
+		<section class="rsrvtin-section terms">
+			<h3 id="seq5">이용 약관</h3>
+			<div class="terms-list-noti">
+				<label for="all-checkbox" class="checkbox circle">
+					<input type="checkbox" name="checkbox0" id="all-checkbox" />
+					<span class="label">약관 전체동의</span>
+				</label>
+				<p class="terms-txt">개인 정보 수집 및 활용, 개인정보 취급위탁, 제3자 및 위탁업체 제공, 마케팅 수신(선택)에 모두 동의합니다.</p>
+			</div>
+
+			<div class="terms-list" data-accordion>
+				<h4 class="terms-tit">
+					<label for="checkbox0-2" class="checkbox circle">
+						<input type="checkbox" name="checkbox1" id="checkbox0-2" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="essential">필수</i></span>
+					</label>
+				</h4>
+				<div class="terms-section">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-3" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-3" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="i-essential">필수</i></span>
+					</label>
+				</h4>
+				<div class="terms-section">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-4" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-4" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="i-essential">필수</i></span>
+					</label>
+				</h4>
+				<div class="terms-section-last">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-5" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-5" />
+						<span class="label"><em class="roboto">E-mail</em> 및 <em class="roboto">SMS</em> 광고성 정보 수신동의<i class="i-select">(선택)</i></span>
+					</label>
+				</h4>
+				<div class="terms-section-last">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+</body>
+</html>
