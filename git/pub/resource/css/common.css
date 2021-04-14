@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import "reset.css";
-@import "sub1.css";
-@import "sub2.css";
-@import "sub3.css";
+@font-face{font-family:'buriSB';font-style:normal;font-weight:normal;src:url(webfont/Arita-buriSB.woff) format("woff"),url(webfont/Arita-buriSB.otf) format('opentype')}
+@import url("reset.css");
+@import url("sub1.css");
+@import url("sub2.css");
