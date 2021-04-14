@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>상담신청</title>
+	
+	<link rel="stylesheet" type="text/css" href="../static/script/datepicker/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/sub.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="../static/script/datepicker/jquery-ui.min.js"></script>
+	<script src="../static/script/ui_common.js"></script>
+
+	<script>
+	//<![CDATA[
+		function checkvalue( obj ){
+			var check = $(obj).val();
+			var output = $('.tit-time').find('.output');
+			output.text(check);
+			$('#seq2').removeClass('active');
+			$('#contents').animate({scrollTop:605},150);
+		}
+
+		function checkReset(){
+			$('input[name=time]').prop('checked', false);
+			$('.tit-time').find('.output').text('시간선택');
+			$('#seq2').addClass('active on');
+		}
+
+		$(function() {
+			var seq2 = $('#seq2').offset().top;
+			$('.rsrvtin-list').find('h3').each(function(){
+				var tit = $(this);
+				tit.on("click", function(){
+					if(tit.hasClass('on')){
+						if(tit.hasClass('active')){
+							tit.removeClass('active');
+						} else {
+							tit.addClass('active');
+							$("[data-inlinepicker]").datepicker({
+								altField: '#d'
+							}).on('change', function(){
+								$('.tit-date').find('.output').text($('#d').val()).addClass('roboto');
+								tit.removeClass('active');
+								$('#contents').animate({scrollTop:seq2-50}, 150);
+								checkReset();
+							});
+						}
+					}
+				});
+			});
+		});
+
+		function termsView(obj){
+			var target=$(obj).closest('.terms-tit');
+			var sec=target.next('.terms-section');
+			var h=sec.find('.terms-list-des').outerHeight();
+			if(!sec.hasClass('active')){
+				$(obj).addClass('active');
+				sec.addClass('active').css({'height':h});
+			}else{
+				$(obj).removeClass('active');
+				sec.removeClass('active').attr('style','');
+			}
+		}
+	//]]>
+	</script>
+</head>
+
+<body>
+<div id="wrap">
+	<h1 class="blind">하우시스 상담</h1>
+	<header id="fixedTop">
+		<h2>상담 장소 선택하기</h2>
+		<button type="button" class="back">이전 화면으로</button>
+	</header>
+	<div id="fixedToast" style="display:none">
+		<span>필수 정보를 모두 입력해주세요</span>
+	</div>
+	<div id="contents" class="page-slctdetail">
+		<section class="rsrvtin-section">
+			<h3 class="blind">선택된 상담 장소 안내</h3>
+			<div class="inner">
+				<strong class="rsrvtin-agency"><em class="roboto">LG Z:IN</em> 인테리어 전시장 용인점</strong>
+				<p class="rsrvtin-adrss">경기 용인시 수지구 포은대로 456 LG하우시스</p>
+				<p class="rsrvtin-txt">031-896-8188</p>
+				<p class="rsrvtin-txt"><em class="roboto">10:00</em> ~ <em class="roboto">19:00</em>(일요일,공휴일 휴관)</p>
+			</div>
+		</section>
+		<section class="rsrvtin-list">
+			<h3 id="seq1" class="tit-date on">
+				<span class="output">날짜선택</span>
+				<input type="hidden" name="" id="d" value="" class="roboto" readOnly="readOnly" />
+			</h3>
+			<div class="data-picker-wrap" data-inlinepicker></div>
+			<!-- <h3 id="seq2" class="tit-time">시간선택</h3> -->
+			<h3 id="seq2" class="tit-time">
+				<span class="output">시간선택</span>
+				<!-- 오후 <em class="roboto">12</em>시 -->
+			</h3>
+			<div class="time-picker-wrap">
+				<h4 class="chk-tit">오전</h4>
+				<div class="checklist col-04">
+					<label for="time1" class="radio-text">
+						<input type="radio" name="time" id="time1" value="오전 9시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">09:00</span></span>
+					</label>
+					<label for="time2" class="radio-text">
+						<input type="radio" name="time" id="time2" value="오전 10시" onClick="checkvalue(this);">
+						<span class="label"><span class="roboto">10:00</span></span>
+					</label>
+					<label for="time3" class="radio-text">
+						<input type="radio" name="time" id="time3" value="오전 11시" onClick="checkvalue(this);">
+						<span class="label"><span class="roboto">11:00</span></span>
+					</label>
+				</div>
+				<h4 class="chk-tit">오후</h4>
+				<div class="checklist col-04">
+					<label for="time4" class="radio-text">
+						<input type="radio" name="time" id="time4" value="오후 12시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">12:00</span></span>
+					</label>
+					<label for="time5" class="radio-text">
+						<input type="radio" name="time" id="time5" value="오후 1시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">13:00</span></span>
+					</label>
+					<label for="time6" class="radio-text">
+						<input type="radio" name="time" id="time6" value="오후 2시" onClick="checkvalue(this);" disabled="disabled" >
+						<span class="label"><span class="roboto">14:00</span></span>
+					</label>
+					<label for="time7" class="radio-text">
+						<input type="radio" name="time" id="time7" value="오후 3시" onClick="checkvalue(this);" disabled="disabled" >
+						<span class="label"><span class="roboto">15:00</span></span>
+					</label>
+					<label for="time8" class="radio-text">
+						<input type="radio" name="time" id="time8" value="오후 4시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">16:00</span></span>
+					</label>
+					<label for="time9" class="radio-text">
+						<input type="radio" name="time" id="time9" value="오후 5시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">17:00</span></span>
+					</label>
+					<label for="time10" class="radio-text">
+						<input type="radio" name="time" id="time10" value="오후 6시" onClick="checkvalue(this);" >
+						<span class="label"><span class="roboto">18:00</span></span>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="rsrvtin-section lctin">
+			<h3 id="seq3">매장위치</h3>
+			<div class="map-area">
+				<img src="http://10.39.168.201/html/mobile/static/imgs/map.png" alt="" style="width:100%"> <!--[D] 작업시 style 속성값 제거 필요-->
+			</div>
+		</section>
+		<section class="rsrvtin-section cstmr">
+			<h3 id="seq4">예약 고객 정보</h3>
+			<ul class="input-list">
+				<li>
+					<label for="name">이름</label>
+					<input type="text" name="name" id="name">
+				</li>
+				<li>
+					<label for="num">연락처</label>
+					<input type="tel" name="num" id="num" placeholder="숫자만 입력해 주세요.">
+				</li>
+				<li>
+					<label for="adress">시공지 주소</label>
+					<input type="text" name="adress" id="adress" readonly="readOnly" class="with-btn">
+					<a href="#pop-adress" class="btn-default" data-modalbtn>주소검색</a>
+					<div class="mgt10">
+						<input type="text" placeholder="상세 주소를 입력해 주세요." title="시공지 상세주소">
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="rsrvtin-section terms">
+			<h3 id="seq5">이용 약관</h3>
+			<div class="terms-list-noti">
+				<label for="all-checkbox" class="checkbox circle">
+					<input type="checkbox" name="checkbox0" id="all-checkbox" />
+					<span class="label">약관 전체동의</span>
+				</label>
+				<p>개인 정보 수집 및 활용, 개인정보 취급위탁, 제3자 및 위탁업체 제공, 마케팅 수신(선택)에 모두 동의합니다.</p>
+			</div>
+
+			<div class="terms-list">
+				<h4 class="terms-tit">
+					<label for="checkbox0-2" class="checkbox circle">
+						<input type="checkbox" name="checkbox1" id="checkbox0-2" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="essential">필수</i></span>
+					</label>
+					<span class="open" onclick="termsView(this);">열기/닫기</span>
+				</h4>
+				<div class="terms-section">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-3" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-3" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="i-essential">필수</i></span>
+					</label>
+					<span class="open" onclick="termsView(this);">열기/닫기</span>
+				</h4>
+				<div class="terms-section">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-4" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-4" />
+						<span class="label">개인정보 수집 및 활용 동의<i class="i-essential">필수</i></span>
+					</label>
+					<span class="open" onclick="termsView(this);">열기/닫기</span>
+				</h4>
+				<div class="terms-section terms-section-last">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+				<h4 class="terms-tit">
+					<label for="checkbox0-5" class="checkbox circle">
+						<input type="checkbox" name="checkbox2" id="checkbox0-5" />
+						<span class="label"><em class="roboto">E-mail</em> 및 <em class="roboto">SMS</em> 광고성 정보 수신동의<i class="i-select">(선택)</i></span>
+					</label>
+					<span class="open" onclick="termsView(this);">열기/닫기</span>
+				</h4>
+				<div class="terms-section terms-section-last">
+					<p class="terms-list-des">
+						메일링/문자를 통한 이벤트 및 홍보 안내를 받겠습니다.
+						본 마케팅 활용동의 대상자에게는 별도 이벤트를 진행하
+						며, 이벤트 당첨 확률이 높아질 수 있습니다.
+					</p>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div id="fixedBottom">
+		<div class="button-box">
+			<!-- <a href="#" class="btn-default">예약 신청하기</a> -->
+			<a href="finish.html" class="btn-default" disabled>예약 신청하기</a> <!-- [D] 비활성시 disabled 속성 추가-->
+		</div>
+	</div>
+	<div id="modal">
+		<section class="modal-dialog" id="pop-adress">
+			<div class="modal-header">
+				<h3 class="modal-title">주소찾기</h3>
+			</div>
+			<div class="modal-container">
+				<div class="modal-content">
+
+					<div class="adress-srch">
+						<label for="pop-adress">
+							<input type="text" id="adress">
+						</label>
+						<span class="btn-wrap">
+							<a href="#pop-ad-result" class="btn-srch">검색</a>
+						</span>
+					</div>	
+					<!-- 주소찾기 검색 전 -->
+					<p class="adress-srch-des">
+						도로명, 건물명 또는 지번 중 편한 방법으로 검색하세요.
+					</p>
+					<div class="adress-srch-exmpl">
+						건물명: 방배동 우성아파트<br>
+						도로명: 테헤란로 152<br>
+						지역번: 역삼동737
+					</div>
+					<!-- //주소찾기 검색 전 -->
+					<!-- 주소찾기 검색정보 노출 -->
+					<div class="adress-rslt">
+						<p class="tbl-total">
+							<span>검색결과(</span>
+							<span class="fc-point">
+								<em class="roboto">12</em><em>건</em>
+							</span>	
+							<span>)</span>
+						</p>
+
+						<div class="tbl-list agc">
+							<table>
+								<caption>주소찾기 검색 결과</caption>
+								<colgroup>
+									<col style="width:35px">
+									<col style="width:auto">
+									<col style="width:66px">
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="roboto">No</th>
+										<th>주소</th>
+										<th>우편번호</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr onClick=""> <!--[D] 작업방식 확인하기-->
+										<td class="roboto">
+											1
+										</td>
+										<td class="agl">
+											<p class="fw-medium">서울특별시 강서구 마곡중앙 5길 22</p>
+											<p>[지번] 서울특별시 구로구 구로동 222-22 엘지타워 10001호</p>
+										</td>
+										<td class="roboto">
+											07788
+										</td>
+									</tr>
+									<tr onClick="">
+										<td class="roboto">
+											2
+										</td>
+										<td class="agl">
+											<p class="fw-medium">서울특별시 강서구 마곡중앙 5길 22</p>
+											<p>[지번] 서울특별시 강서구 마곡동 760 마곡나루역보타닉푸르지오</p>
+										</td>
+										<td class="roboto">
+											07788
+										</td>
+									</tr>
+									<tr onClick="">
+										<td class="roboto">
+											3
+										</td>
+										<td class="agl">
+											<p class="fw-medium">서울특별시 관악구 인헌 1다길 33-1 </p>
+											<p>[지번] 서울특별시 관악구 봉천동</p>
+										</td>
+										<td class="roboto">
+											07788
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+					</div>
+					<!-- //주소찾기 검색정보 노출  -->
+				</div>
+			</div>
+			<button type="button" class="modal-close" data-modalclose>팝업 닫기</button>
+		</section> 
+	</div>
+	<footer>
+	</footer>
+</div>
+
+</body>
+</html>
