@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+/****************************************/
+/*	Name: PUBLISHING GUIDE
+/*	PART: IMPORT STYLE
+/*	Version: 1.0
+/*	Author: [써냐]BLUEWEBD™
+/****************************************/
+
+/******************************* 사업소메인 공통영역 S *******************************/
+#wrap.office_m{margin-right:0}
+
+/* 상단영역 */
+.office_m .headerWrap {background:#fff !important;}
+
+/*컨텐츠영역*/
+.office_m #container{width:980px;margin:0 auto;min-height:875px;padding:50px 0 120px; background:none;}
+.office_m .contents{padding-top:50px}
+.office_m .tit{font-size:14px;font-weight:bold;color:#000}
+.office_m .txt_area{float:left;padding-left:78px}
+.office_m .txt_area.off1{float:left;padding-left:48px}
+/*지역위치,날씨보기*/
+.office_m .office_state{float:right;width:200px;margin:40px 30px 0 0;text-align:center}
+.office_m .office_state .tit,.office_state p{color:#fff}
+.office_m .office_state .tit{font-size:26px;font-weight:bold}
+.office_m .office_state .local{margin:8px 0 15px}
+.office_m .office_state .local em{background:url(/publish/img/office/00/main/icon_location.png) no-repeat 0 50%;padding-left:15px;font-size:15px}
+.office_m .office_state .weather{overflow:hidden;text-align:left}
+.office_m .office_state .weather img{float:left;margin-right:20px}
+.office_m .office_state .weather .date{font-size:15px}
+.office_m .office_state .weather .temper{font-size:52px;line-height:45px}
+.office_m .office_state .weather .temper sup{font-size:30px}
+/*공지사항*/
+.office_m .split .colSec{border-radius:10px;background:#fff}
+.office_m .split.col3{margin-bottom:15px}
+.office_m .split.col3 .colSec{width:244px;height:290px}
+.office_m .split.col2 .colSec:first-child{width:460px}
+.office_m .split.col2 .colSec{width:504px;height:290px;margin-right:16px}
+.office_m .split.col3 .notice{width:400px;height:240px;padding:25px 30px}
+.office_m .split.col3 .notice .colSec{position:relative;width:190px;height:110px;padding-top:130px}
+.office_m .split.col3 .notice .colSec > img{position:absolute;left:0;top:0;}
+.office_m .split.col3 .notice .colSec ul li{position:relative;background:url(/publish/img/office/00/main/bul_dot.png) no-repeat 0 50%;padding-left:6px}
+.office_m .split.col3 .notice .colSec ul li img{position:absolute;right:0;top:7px}
+.office_m .split.col3 .notice .colSec ul li a{display:block;color:#000;font-size:13px;line-height:24px}
+.office_m .split.col3 .notice .colSec .more{position:absolute;right:0;top:130px;font-size:11px;color:#000;background:url(/publish/img/office/00/main/icon_plus.png) no-repeat 0 50%;
+padding-left:10px}
+/*공지사항 3행 (11_12 진영)*/
+.office_m .split.col2.noticeTrip {width:661px; margin-right:15px;}
+.office_m .split.col2.noticeTrip .colSec {margin:0 0 0 40px;}
+.office_m .split.col2.noticeTrip .colSec:first-child {margin:0;}
+.split.col3 > .colSec.event {margin:0;}
+/*빠른메뉴(11_12 진영 수정+추가)*/
+.office_m .quick:after {content:'.'; display:block; height:0px; clear:both; visibility:hidden; zoom:1;}
+.office_m .quick li {display:block;float:left;width:34%;height:144px;background:url(/publish/img/office/00/main/icon_quick.png) no-repeat;border-top:1px solid #d0d0d0;border-right:1px solid #d0d0d0;margin:0 -3px}
+.office_m .quick1 li {background:url(/publish/img/office/00/main/icon_quick1.png) no-repeat}
+.office_m .quick2 li {background:url(/publish/img/office/00/main/icon_quick2.png) no-repeat}
+.office_m .quick3 li {background:url(/publish/img/office/00/main/icon_quick3.png) no-repeat}
+.office_m .quick4 li {background:url(/publish/img/office/00/main/icon_quick4.png) no-repeat}
+.office_m .quick li.noline_t {border-top:0}
+.office_m .quick li.noline_r {border-right:0}
+.office_m .quick li.icon_q1 {background-position:-22% -54%}
+.office_m .quick li.icon_q2 {background-position:50% -54%}
+.office_m .quick li.icon_q3 {background-position:120% -54%}
+.office_m .quick li.icon_q4 {background-position:-22% 226%}
+.office_m .quick li.icon_q5 {background-position:50% 226%}
+.office_m .quick li.icon_q6 {background-position:124% 226%}
+.office_m .quick1 li.icon_q1 {background-position:-20% -45%} 
+.office_m .quick1 li.icon_q3 {background-position:121% -45%} 
+.office_m .quick1 li.icon_q4 {background-position:-18% 235%} 
+.office_m .quick1 li.icon_q6 {background-position:121% 235%} 
+.office_m .quick2 li.icon_q1 {background-position:-19% -45%}
+.office_m .quick2 li.icon_q4 {background-position:-19% 235%}
+.office_m .quick2 li.icon_q6 {background-position:119% 235%}
+.office_m .quick3 li.icon_q1 {background-position:-23% -45%} 
+.office_m .quick3 li.icon_q4 {background-position:-23% 235%}
+.office_m .quick4 li.icon_q1 {background-position:-19% -45%} 
+.office_m .quick4 li.icon_q4 {background-position:-19% 235%}
+.office_m .quick li a {overflow:hidden;display:block;width:100%;height:46px;font-size:14px;color:#444;font-weight:bold;text-align:center;padding-top:95px}
+/*빠른메뉴 가로1줄(11_12 진영)*/
+.office_m .quickHor.quick5 {background:url(/publish/img/office/00/main/icon_quick5.png) no-repeat}
+.office_m .quickHor.quick6 {background:url(/publish/img/office/00/main/icon_quick6.png) no-repeat}
+.office_m .quickHor.quick7 {background:url(/publish/img/office/00/main/icon_quick7.png) no-repeat}
+.office_m .quickHor.quick8 {background:url(/publish/img/office/00/main/icon_quick8.png) no-repeat}
+.office_m .split .colSec.quickHor {width:980px; background-color:#fff; background-position:41px 41px}
+.office_m .split .quickHor:after {content:'.'; display:block; height:0px; clear:both; visibility:hidden; zoom:1}
+.office_m .split .colSec.quickHor li {float:left; width:19.9%; border-left:1px solid #dfdfdf; text-align:center; color:#444}
+.office_m .split .colSec.quickHor li:first-child {border:none}
+.office_m .split .colSec.quickHor li a {display:inline-block; width:100%; height:274px; color:#000}
+.office_m .split .colSec.quickHor li .quickT {display:block; font-size:18px; padding:170px 0 7px; color:#444}
+/*실시간 운영정보*/
+.office_m .split.col3 .operate{width:204px;height:250px;padding:20px;text-align:center}
+.office_m .operate .tit{text-align:left}
+.office_m .operate p{color:#000;margin:10px 0 15px;text-align:left}
+.office_m .operate .equip{width:100%;border-top:1px solid #dfdfdf;border-bottom:1px solid #dfdfdf;padding:15px 0 7px}
+.office_m .operate .equip li{display:inline-block;*display:inline;zoom:1;width:34%;height:24px;line-height:24px;background:#eef5ff url(/publish/img/office/00/main/icon_orerate.png) no-repeat;border-radius:10px;margin:0 7px 8px;padding-right:8px;color:#000}
+.office_m .equip li.ico_run{background-position:99% 3px}
+.office_m .equip li.ico_repair{background-position:99% -35px}
+.office_m .equip li.ico_stop{background-position:99% -73px}
+.office_m .equip_info{margin:8px 0 14px}
+.office_m .equip_info li{display:inline-block;*display:inline;zoom:1;background:url(/publish/img/office/00/main/icon_orerate.png) no-repeat;color:#000;padding-right:16px;margin-left:8px}
+.office_m .equip_info li:first-child{margin-left:0}
+.office_m .equip_info li.ico_s_run{background-position:100% -109px}
+.office_m .equip_info li.ico_s_repair{background-position:100% -146px}
+.office_m .equip_info li.ico_s_stop{background-position:100% -185px}
+.office_m .operate .btns a{color:#000;background:url(/publish/img/office/00/main/bul_arrow.png) no-repeat 100% 50%;padding-right:12px}
+.office_m .operate .btns a:first-child{margin-right:16px}
+/*이벤트*/
+.office_m .event{position:relative}
+.office_m .event .tit{position:absolute;left:20px;top:20px;z-index:2}
+.office_m .office_evt_banner{width:244px; height:290px; text-align:center; position:relative;}
+.office_m .office_evt_banner .slideshow {overflow:hidden; position:relative; width:100%; height:290px;border-radius:10px}
+.office_m .office_evt_banner .slideshow dd {display:block; position:absolute; top:0; width:100%}
+.office_m .office_evt_banner .slideshow dd a{display:block;width:100%;height:100%}
+.office_m .office_evt_banner .slideshow dd p{position:absolute;left:0;bottom:0;width:204px;background:rgba(0,0,0,.8);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#90000000,endColorstr=#90000000);zoom:1;padding:20px;text-align:left;color:#fff;
+font-size:14px;line-height:18px}
+.office_m .office_evt_banner .slideshow dd p span{display:block;color:#cdcdcd;margin-top:4px}
+.office_m .office_evt_banner .btn {position:absolute; display:block; top:20px; padding:0; width:12px; height:18px; text-align:center; background:url(/publish/img/com/slide_controls.png) no-repeat; border:none; z-index:10;}
+.office_m .office_evt_banner .btn.prev {right:20px; background-position: 0 0;}
+.office_m .office_evt_banner .btn.next {right:0; background-position: -12px 0;}
+.office_m .office_evt_banner .btn.state {width:8px; min-width:8px; height:10px; right:0; background-position:-11px 0; border-radius:0;}
+.office_m .office_evt_banner .state em {display:none;}
+.office_m .office_evt_banner .state.play {width:8px; height:10px; background-position:0 0;}
+.office_m .office_evt_banner .state.play span {display:block;}
+.office_m .office_evt_banner .state.stop em {display:none;}
+.office_m .office_evt_banner .indic {position:absolute; top:20px; z-index:10;}
+.office_m .office_evt_banner .indic a {display:block; width:8px; height:8px; background: #000; background:url(/publish/img/com/slide_pager.png) no-repeat;}
+.office_m .office_evt_banner .indic a:hover,
+.office_m .office_evt_banner .indic.active a {background-position:-15px 0;}
+/* 실시간 운영현황 */
+.office_m .office_live {width:244px; height:290px; text-align:center; position:relative;}
+.office_m .office_live .slideshow {overflow:hidden; position:relative; width:100%; height:290px;border-radius:10px}
+.office_m .office_live .slideshow dd {display:block; position:absolute; top:0; width:100%}
+.office_m .office_live .slideshow dd p span{display:block;color:#cdcdcd;margin-top:4px}
+.office_m .office_live .btn {position:absolute; display:block; bottom:19px; padding:0; width:20px; height:20px; text-align:center; background:url(/publish/img/com/slide_controls.png) no-repeat; border:none; z-index:10;}
+.office_m .office_live .btn2 {position:absolute; display:block; top:53px; left:40px; padding:0; width:20px; height:20px; text-align:center; background:url(/publish/img/ico/btn_operate.png) no-repeat; border:none; z-index:10;}
+.office_m .office_live .btn3{position:absolute; display:block; top:53px; right:40px; padding:0; width:20px; height:20px; text-align:center; background:url(/publish/img/ico/btn_operate.png) no-repeat; background-position:-20px; border:none; z-index:10;}
+.office_m .office_live .btn.prev {right:20px; background-position: 0 0;}
+.office_m .office_live .btn.next {right:0; background-position: -12px 0;}
+.office_m .office_live .btn.state {width:8px; min-width:8px; height:10px; right:0; background-position:-11px 0; border-radius:0;}
+.office_m .office_live .state em {display:none;}
+.office_m .office_live .state.play {width:8px; height:10px; background-position:0 0;}
+.office_m .office_live .state.play span {display:block;}
+.office_m .office_live .state.stop em {display:none;}
+.office_m .office_live .indic {position:absolute; bottom:20px; left:44px; z-index:10;}
+.office_m .office_live .indic a {display:block; width:8px; height:8px; background: #000; background:url(/publish/img/com/slide_pager.png) no-repeat;}
+.office_m .office_live .indic a:hover,
+.office_m .office_live .indic.active a {background-position:-15px 0;}
+/*실시간 운영정보(11_12진영)*/
+.split.col3 > .colSec.event.eventOper {margin-right:16px;}
+.operateL {position:relative}
+.operateL > strong {display:inline-block; padding:25px 0 0; font-weight:bold; font-size:20px;color:#3d7cda}
+.office_m .operate p.operateDesc {text-align:center;}
+.operateL  .operateDesc {text-align:center;}
+.office_m .office_live .btn.state2 {right:40px;}
+.office_m .eventOper .office_live .btn.stop {bottom:20px;}
+.office_m .eventOper .office_live .btn.prev {min-width:20px; background:url(/publish/img/ico/btn_operate.png) no-repeat; top:50px; left:47px;}
+.office_m .eventOper .office_live .btn.next {min-width:20px; background:url(/publish/img/ico/btn_operate.png) no-repeat; top:50px; right:47px; background-position:-19px;}
+.office_m .eventOper .office_live .indic {margin-left: -4px}
+/*예약신청*/
+.office_m .reserve dt{position:relative;height:40px;line-height:39px;background:#015198;border-radius:10px;border-bottom-left-radius:0;border-bottom-right-radius:0;
+padding-left:240px;}
+.office_m .reserve dt .tit{position:absolute;left:25px;color:#fff} 
+.office_m .reserve dt div > *{display:inline-block;*display:inline;zoom:1;color:#fff;vertical-align:middle;margin-left:5px}
+.office_m .reserve dt div > .tit_cal{font-size:15px;font-weight:bold;margin:0 12px}
+.office_m .reserve dd{overflow:hidden}
+.office_m .reserve .txt_info,.reserve .cal_area{float:left;height:250px}
+.office_m .reserve .txt_info{position:relative;width:122px;background:#f9f9f9;border-right:1px solid #cbcbcb;border-bottom-left-radius:10px}
+.office_m .reserve .txt_info .tit_course{margin:10px 0 0 30px}
+.office_m .reserve .txt_info .tit_course li a{display:block;width:92px;height:24px;line-height:24px;text-align:center;color:#000}
+.office_m .reserve .txt_info .tit_course li a.on{border-radius:10px;border:1px solid #cbcbcb;border-right:0;border-bottom-right-radius:0;border-top-right-radius:0;
+background:#fff;font-weight:bold}
+.office_m .reserve .txt_info .date_info{position:absolute;left:20px;bottom:15px}
+.office_m .reserve .date_info li{position:relative;padding-left:22px;margin-top:5px}
+.office_m .reserve .date_info li:first-child{margin-top:0}
+.office_m .reserve .date_info li:before{content:'';display:block;position:absolute;left:0;top:3px;width:12px;height:12px;border-radius:20px}
+.office_m .reserve .date_info .possible:before{background:#3d7cda;color:#fff}
+.office_m .reserve .date_info .finish:before{background:#cae0ff}/* 11_11 진영수정 (기존)eef5ff*/
+.office_m .reserve .date_info .holiday:before{width:10px;height:10px;border:1px solid #f89595}
+.office_m .reserve .date_info .today:before{width:8px;height:8px;border:2px solid #008294}
+.office_m .reserve .cal_area{width:260px;height:240px;padding:10px 60px 0}
+.office_m .tbl_cal{width:100%}
+.office_m .tbl_cal thead th,.tbl_cal tbody td{height:26px;line-height:26px;text-align:center;color:#000}
+.office_m .tbl_cal thead th span{font-weight:bold}
+.office_m .tbl_cal thead th:first-child span{color:#eb5656}
+.office_m .tbl_cal tbody td .tdCont{display:block;width:28px;margin:0 auto;border-radius:20px;margin-top:3px}
+.office_m .tbl_cal tbody td .last{color:#888}
+.office_m .tbl_cal tbody td .possible{background:#3d7cda;color:#fff}
+.office_m .tbl_cal tbody td .finish{background:#eef5ff}
+.office_m .tbl_cal tbody td .holiday{border:1px solid #f89595}
+.office_m .tbl_cal tbody td .today{border:2px solid #008294}
+/**하단영역**/
+.office_m footer{width:980px;height:16px;margin:0 auto;text-align:center;color:#fff;letter-spacing:0;padding-bottom:38px; background:none; border-radius:0;}
+/******************************* 사업소메인 공통영역 E *******************************/
+
+
+/*고리원자력*/
+/*.office_m.office3{background:url(/publish/img/office/03/main/bg_office_main.jpg) no-repeat 50% 100px!important;}*/

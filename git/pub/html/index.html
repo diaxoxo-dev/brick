@@ -1,0 +1,208 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>KT telecop 모바일 퍼블리싱 가이드</title>
+<link rel="stylesheet" href="http://code.jquery.com/jquery-latest.js" />
+<style type="text/css">
+html, body, p {margin:0; padding:0; font-family: "맑은 고딕",'돋움',Dotum,'굴림',Gulim,AppleGothic,serif,sans-serif}
+body {width:100%}
+body, td {font-size:12px; font-family: "맑은 고딕"; color:#6b6b6b; letter-spacing:-0.5px;}
+table {border-collapse: collapse; border-spacing: 0;}
+#g_header h1 {font-family: "맑은 고딕"; width:96%; height:60px; line-height:1.2em; padding:14px 0 0 28px; margin-top:0; color:#fff; background:#00adef; text-shadow:0 0 0 rgba(0, 32, 44, 1), 0 0 3px rgba(0, 32, 44, 1)}
+h1 {font-size:34px}
+#g_body {padding:0 30px 80px;}
+li {list-style:none}
+.guide_table {width:100%;}
+.guide_table thead th {background:#f1f1f1; padding:6px 4px; border:solid 1px #dadada;}
+.guide_table tbody td {padding:5px; border:solid 1px #dadada; box-sizing:border-box}
+.guide_table tbody td.filelink a {text-decoration:none; color:#0177bd;}
+.guide_table tr.dep00 td {border-top:solid 3px #999;}
+.guide_table tr.dep01 td {border-top:solid 2px #dadada;}
+.guide_table td.filelink a {display:block}
+.guide_table td.filelink a:hover {text-decoration:underline}
+.point {color:red !important}
+.f_down a {margin-left:50px; color:#666; font-size:16px}
+.btit {display:block; margin-top:8px; padding:5px 0; border-top:1px dashed #dadada; color:#0037d6 !important}
+.btit ~ p {text-indent:10px}
+.guide_summary {font-size:12px; color:#787878; line-height:1.6em}
+.guide_summary h2 {padding:20px 0; font-size:21px; line-height:1em; font-weight:bold; font-family:'맑은고딕',Malgun Gothic; color:#444}
+.guide_summary h2:first-child {padding-top:0}
+.guide_summary h3 {padding:0 0 12px 10px; font-size:16px; font-weight:bold; font-family:'맑은고딕',Malgun Gothic; color:#666}
+.guide_summary h4 {width:100%; padding-bottom:3px; margin:0 0 9px 0; font-size:14px; font-family:'맑은고딕',Malgun Gothic; border-bottom:1px solid #999; font-weight:bold; letter-spacing:0; color:#4c4c4c}
+.guide_summary h5 {padding-bottom:3px; margin:20px 0 15px 0; font-size:13px; font-family:'맑은고딕',Malgun Gothic; border-bottom:1px dashed #ddd; font-weight:bold; letter-spacing:0; color:#727272}
+.guide_summary ol, .guide_summary ul, .guide_summary dl, .guide_summary p {padding:0 0 20px 0}
+.guide_summary h4 + div {margin:0 18px 35px 41px}
+.guide_summary div + h2 {padding-top:45px}
+.guide_summary div > ul, .guide_summary div > p {padding:0}
+.guide_summary > p + p, .guide_summary > p + ul, .guide_summary > p + .box_code {margin-top:-13px; margin-bottom:0}
+.guide_summary p.ex {border:1px solid #ccc}
+strong {color:#ff0000}
+.guide_summary span.ex {color:#961280}
+.guide_summary .blue {color:#0000ff}
+.agc {text-align:center}
+.agl {text-align:left}
+.agr {text-align:right}
+.no {text-align:center}
+.tit-num{counter-increment:titnum;}
+.tit-num:before{content:counter(titnum)". ";}
+.txt-tit-num2{counter-increment:titnum2;}
+.txt-tit-num2:before{content:"제"counter(titnum2)"조 ";}
+
+</style>
+<script type="text/javascript">
+	function init_proc()
+	{
+		var ch;
+		var total = 0;
+		var finish = 0;
+		var per = 0;
+		for (ch = 0;ch < document.work.finish.length;ch++)
+		{
+			total++;
+			if (document.work.finish[ch].checked == true)
+			{
+				finish++;
+			}
+		}
+		per = finish*100/total;
+		document.work.disPer.value = "진척도 " + new String(finish) + " / " + new String(total) + "   : " + new String(per.toFixed(2)) + " %";
+		makeSeq(); //시퀀스 생성
+	}
+	function makeSeq(){
+			var obj = document.getElementById("guide_table");
+			var tbody = obj.getElementsByTagName("tbody")[0];
+			var tr 	= tbody.getElementsByTagName("tr");
+
+			for(var i=0; i< tr.length; i++){
+			tr[i].getElementsByTagName("td")[0].innerHTML = i+1;
+		}
+	}
+function popup(url,wName,w,h){
+	window.open(url,wName,'width='+w+',height='+h+',resizable=0,scrollbars=0');
+}
+function popupscroll(url,wName,w,h){
+	window.open(url,wName,'width='+w+',height='+h+',resizable=1,scrollbars=1');
+}
+</script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function() {
+	$('a').attr({'target': '_blank'});
+	$('.filelink').mouseover(function() {
+		$(this).css('backgroundColor','#f5f5f5');
+	});
+	$('.filelink').mouseout(function() {
+		$(this).css('backgroundColor','#fff');
+	});
+	var $tabletrno = $('table.guide_table tbody tr:not(.rdln)');
+	var $tabletdno = $tabletrno.each(function(i) {
+		$(this).children('td.no').text(i+1);
+	});
+	$('table.guide_table tr').each(function() {
+		var $ichecked = $(this).children('td').children('input:checkbox').attr('checked');
+		if ($ichecked)	{
+			$(this).children('td.filelink').children().css('color', '#900');
+		}
+	});
+ });
+</script>
+</head>
+<body onload="init_proc();">
+<div id="g_header">
+	<h1>프로젝트명</h1>
+</div>
+<div id="g_body">
+	<div class="contents">
+		<h2 style="font-size:20px">퍼블리싱 정책 기준 요약</h2>
+		<div class="guide_summary">
+			<h4 class="tit-num">크로스 브라우징</h4>
+			<p>기준 : MOBILE / PAD</p>
+			<h4 class="tit-num">문서타입 및 인코딩</h4>
+			<p class="box_code">&lt;!DOCTYPE html&gt;<br>&lt;meta charset="utf-8"&gt;</p>
+			<h4 class="tit-num">요청사항</h4>
+			<p class="box_code">
+			</p>
+			<h4 class="tit-num">SB 최신버전</h4>
+			<ul class="box_code">
+				<li>통합브로슈어-0615-최종버전</strong></li>
+			</ul>
+			<h4 class="tit-num">화면ID</h4>
+			<p>통합브로슈어-0615-최종버전</p>
+
+			<p class="box_code blue"></p>
+		    <h4 class="tit-num">고객 담당자 정보</h4>
+			<p class="box_code"></p>
+		</div>
+		<form name="work">
+			<p class="guide_summary">
+				<span>[ <input type="text" name="disPer" value="" style=" border:0; font-size:12px"/> ]</span>
+			</p>
+			<!-- 완료 : checked="checked" -->
+			<table class="guide_table" id="guide_table">
+			<thead>
+			<tr>
+				<th scope="col">NO</th>
+				<th scope="col">1depth</th>
+				<th scope="col">2depth</th>
+				<th scope="col">3depth</th>
+				<th scope="col">4depth</th>
+				<th scope="col">5depth</th>
+				<th scope="col">퍼블리싱 보기</th>
+				<th scope="col">상태</th>
+				<th scope="col">디자인</th>
+				<th scope="col">비고</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="no"><!-- 번호 --></td>
+					<td>서브</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink">
+						<a href="./html/sub_guide.html" target="_blank">sub_guide.html</a>
+					</td>
+					<td class="agc"><input type="checkbox" name="finish" checked="checked" /></td>
+					<td class="agc">디자인 수급(08_03)<br />수정 디자인 수급(08_05)</td>
+					<td class="agc">(8_05) 반영 완료</td>
+				</tr>
+				<tr class="dep00">
+					<td class="no"><!-- 번호 --></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink">
+						<a href="" target="_blank"></a>
+					</td>
+					<td class="agc"><input type="checkbox" name="finish"/></td>
+					<td class="agc"></td>
+					<td class="agc"></td>
+				</tr>				
+				<tr class="dep00">
+					<td class="no"><!-- 번호 --></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="filelink">
+						<a href="" target="_blank"></a>
+					</td>
+					<td class="agc"><input type="checkbox" name="finish"/></td>
+					<td class="agc"></td>
+					<td class="agc"></td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+</body>
+</html>

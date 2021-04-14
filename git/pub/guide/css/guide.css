@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import url(../../resource/css/reset.css);
+/****************************************/
+/*	project: 프로젝트명 
+/*	PART: guide CSS
+/*	Version: 1.0
+/*	작성자: xoxo
+/****************************************/
+
+@font-face {
+    font-family: 'khnpheadlineregular';
+    src: url('font/khnpheadline_bold-webfont.eot');
+    src: url('font/khnpheadline_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/khnpheadline_bold-webfont.woff2') format('woff2'),
+         url('font/khnpheadline_bold-webfont.ttf') format('truetype'),
+         url('font/khnpheadline_bold-webfont.svg#khnpheadlineregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {background:#eee}
+body > * {background:#fff; border-radius:30px}
+.guide_wrap {width:1130px; margin:0 auto; height:calc(100vh - 30px); margin:15px 0;} 
+.guide_wrap .logo {text-indent:-999999px; overflow:hidden; width:260px; height:90px; display:inline-block}
+.guide_wrap .gnb ul:after {content:''; clear:both; display:block;}
+.guide_wrap .gnb {display:inline-block;}
+.guide_wrap .gnb ul li {float:left; text-align:center}
+.guide_wrap .gnb ul li a {display:inline-block; line-height:90px; min-width:150px; padding:0 15px; height:90px; box-sizing:border-box;}
+.guide_wrap {}
+.guide_wrap {}
+.lnb .depth1 {}
+.lnb .depth2 {padding-left:20px}
+.lnb .depth3 {padding-left:30px}
+.lnb a {padding:5px; line-height:1em; display:inline-block}
+
+.lnb .depth1 ,.lnb .depth2, .lnb .depth3 {}
+.lnb .depth2, .lnb .depth3 {display:none}
+.lnb .depth2.active, .lnb .depth3.active {display:block; animation-duration: 0.3s; animation-name: fade;}
+@keyframes fade {
+    from {
+     opacity:0
+    }
+    to {
+        opacity:1
+    }
+  }

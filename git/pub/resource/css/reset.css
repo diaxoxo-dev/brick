@@ -18,7 +18,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: top;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -44,4 +44,24 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a {text-decoration:none; color:darkcyan}
+a, a:link {
+    color: #333;
+    text-decoration: none;
+   }
+   a:visited {
+    color: #333;
+   }
+   a:hover, a:active {
+    color: #333;
+    text-decoration: none;
+   }
+   em, i, address {
+    font-style: normal;
+    font-weight: normal;
+   }
+   
+   /* ios 초기화 */
+   input,button {border-radius:0;-webkit-appearance:none} /* 인풋,버튼 쉐입 스타일 초기화*/
 
+   /* andriod 초기화 */
